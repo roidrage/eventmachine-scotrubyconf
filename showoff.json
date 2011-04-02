@@ -1,6 +1,7 @@
 {
   "name": "EventMachine",
   "sections": [
-    {"section": "01_introduction"}
+    {"section": "01_introduction"},
+    {"section": "02_why_evented"}
   ]
 }
