@@ -70,7 +70,7 @@
 !SLIDE bullets incremental small
 
 * Proxies
-* Transferring files
+* Transferring (not uploading) files
 * (Almost-)real time apps
 * Streaming/Firehose APIs
 * Messaging
