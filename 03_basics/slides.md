@@ -52,7 +52,7 @@
 
 !SLIDE
 
-## Make it quick ##
+## Make it fast ##
 
 !SLIDE
 
