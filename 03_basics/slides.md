@@ -22,7 +22,7 @@
 
 !SLIDE
 
-## Reactor multiplexes I/O p#
+## Reactor multiplexes I/O Ops #
 
 !SLIDE bullets incremental
 

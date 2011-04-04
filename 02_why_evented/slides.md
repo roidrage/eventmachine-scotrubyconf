@@ -48,7 +48,7 @@
 
 ## No [C10K](http://www.kegel.com/c10k.html) for you ##
 
-!SLIDE
+!SLIDE bullets
 
 ## They do it, we should too ##
 
