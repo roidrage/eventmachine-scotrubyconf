@@ -87,7 +87,7 @@
 
 ## Now send an Email ##
 
-!SLIDE smaller
+!SLIDE even-smaller
 
     redis = EM::Protocols::Redis.connect
     EM::HttpRequest.new('http://jsonip.com/').get do |req|
@@ -111,6 +111,28 @@
 ![My God, it's full of callbacks!](callbacks.jpg)
 
 ## My God, it's full of callbacks! ##
+
+!SLIDE even-smaller
+
+    http.get({host: 'jsonip.com'}, function(res) {
+      var data = '';
+      res.on('data', function(chunk) {
+        data += chunk;
+      });
+      res.on('end', function() {
+        var ip = JSON.parse(data)["ip"];
+        redis.set("ip", ip, function(error, output) {
+          email.send({
+            to : "javascript@gmail.com",
+            from : "meyer@paperplanes.de",
+            subject : "Curly braces everywhere!",
+          },
+          function(err, result){
+            console.log("Email sent!");
+          }); 
+        });
+      });
+    })
 
 !SLIDE center
 

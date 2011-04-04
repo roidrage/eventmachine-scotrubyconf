@@ -84,3 +84,11 @@ img#scalarium_logo {
 pre.sh_sourceCode {
   background-color: #b6ecf2;
 }
+
+div.even-smaller {
+  font-size: 60%;
+}
+
+div.even-smaller code {
+  line-height: 33px;
+}
