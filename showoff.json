@@ -2,6 +2,8 @@
   "name": "EventMachine",
   "sections": [
     {"section": "01_introduction"},
-    {"section": "02_why_evented"}
+    {"section": "02_why_evented"},
+    {"section": "03_basics"},
+    {"section": "04_examples"}
   ]
 }
