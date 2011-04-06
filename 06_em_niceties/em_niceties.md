@@ -1,6 +1,42 @@
 !SLIDE
 
-# Important EventMachine Sugar #
+## Important EventMachine Sugar ##
+
+!SLIDE small
+
+## One-Shot Timers ##
+
+    @@@ruby
+    EM.add_timer(1) do
+      # run in one second
+    end
+
+!SLIDE small
+
+## Periodic Timers ##
+
+    @@@ruby
+    EM.add_periodic_timer(1) do
+      # run every second
+    end
+
+!SLIDE
+
+## `EM.next_tick` ##
+
+!SLIDE
+
+## Split up Iteration ##
+
+    @@@ruby
+    i = 0
+    block = proc do
+      if i < 100
+        i += 1
+        EM.next_tick &block
+      end
+    end
+    EM.next_tick &block
 
 !SLIDE
 
@@ -10,11 +46,27 @@
 
 !SLIDE
 
-## Run code on next iteration ##
+## This blocks the reactor ##
 
-## `EM.next_tick` ##
+    @@@ruby
+    sleep 5
 
-!SLIDE smaller
+!SLIDE small
+
+## Split up Blocking Code ##
+
+    @@@ruby
+    EM.add_periodic_timer(1) do
+      puts "ping"
+    end
+
+    EM.defer do
+      puts "sleep"
+      sleep 5
+      puts "done"
+    end
+
+!SLIDE small
 
 # Ping pong #
 
@@ -26,4 +78,34 @@
           puts "REACTOR THREAD I AM IN U!"
         end
       end
+    end
+
+!SLIDE small
+
+# Queues #
+
+    @@@ruby
+    queue = EM::Queue.new
+
+    queue.pop do |msg|
+      puts "Popped: #{msg}""
+    end
+
+    queue.push("ZOMG, MESSAGE!!")
+
+!SLIDE small
+
+# Queues #
+
+    @@@ruby
+    queue = EM::Queue.new
+    popper = lambda do 
+      puts "Popped #{msg}"
+      queue.pop &popper
+    end
+
+    queue.pop &popper
+
+    EM.add_periodic_timer(1) do
+      queue.push("ZOMG, MESSAGE!!")
     end
