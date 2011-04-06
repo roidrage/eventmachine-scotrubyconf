@@ -4,6 +4,7 @@
     {"section": "01_introduction"},
     {"section": "02_why_evented"},
     {"section": "03_basics"},
-    {"section": "04_examples"}
+    {"section": "04_examples"},
+    {"section": "06_em_niceties"}
   ]
 }

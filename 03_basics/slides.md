@@ -33,11 +33,30 @@
 * Connection closed
 * Timer fired
 
+!SLIDE
+
+# This... #
+
+    @@@ruby
+    response = get_some_data(request)
+
+!SLIDE
+
+# Turns into this #
+
+    @@@ ruby
+    get_some_data do |request|
+      send_response
+    end
+    
+!SLIDE
+
+## Mmmmmmh, callbacks ##
+
 !SLIDE bullets incremental
 
 ## Evented I/O for ##
 
-* Files
 * Sockets
 * External processes
 * Keyboard

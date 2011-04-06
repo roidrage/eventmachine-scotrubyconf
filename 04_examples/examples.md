@@ -6,6 +6,7 @@
 
 !SLIDE small
 
+    @@@ ruby
     EM.start_server '127.0.0.1', 8081 do |conn|
       def conn.receive_data(data)
         send_data(data)
@@ -19,6 +20,7 @@
 
 !SLIDE small
 
+    @@@ ruby
     module Echo
       def receive_data(data)
         send_data(data)
@@ -31,6 +33,47 @@
 
 ## Don't forget to wrap it in 
 ## `EM.run {}` ##
+
+!SLIDE even-smaller
+
+    @@@ ruby
+    require 'eventmachine'
+    require 'evma_httpserver'
+
+    class FileServer < EventMachine::Connection
+      include EventMachine::HttpServer
+
+      def process_http_request
+        filename = File.basename(@http_request_uri)
+        response = EventMachine::DelegatedHttpResponse.new(self)
+        response.status = 200
+        response.content = File.read(filename)
+        response.content_type "text/plain"
+        response.send_response
+      end
+    end
+
+    EM.run do
+      EM.start_server '127.0.0.1', 8080, FileServer
+    end
+
+!SLIDE even-smaller
+
+    @@@ ruby
+    EM.defer do
+      response = EventMachine::DelegatedHttpResponse.new(self)
+      response.status = 200
+      response.content = File.read(filename)
+      response.content_type "text/plain"
+      response.send_response
+    end
+
+!SLIDE bullets incremental
+
+## EventMachine HTTP Server ##
+
+* `gem install thin`
+* `thin start`
 
 !SLIDE bullets incremental
 
@@ -49,8 +92,13 @@
 
 * Fetch my IP
 
+!SLIDE
+
+## [em-http-request](http://github.com/igrigorik/em-http-request) ##
+
 !SLIDE smaller
 
+    @@@ ruby
     EM::HttpRequest.new('http://jsonip.com/').get do |req|
       req.callback do
         req.response
@@ -63,11 +111,13 @@
 
 !SLIDE smaller
 
+    @@@ ruby
     EM::HttpRequest.new('http://jsonip.com/').get do |req|
       req.callback do
         ip = JSON.parse(req.response)["ip"]
       end
     end
+
 !SLIDE
 
 ## Store it in Redis ##

@@ -7,6 +7,17 @@
 * Wait for it
 * Rinse and repeat
 
+!SLIDE smaller
+
+    require 'socket'
+    server = TCPServer.new(2202)
+
+    while client = server.accept
+      msg = client.readline
+      client.write msg
+      client.close
+    end
+
 !SLIDE bullets incremental
 
 # Rails Workflow #
@@ -16,7 +27,13 @@
 * Wait for it
 * Render the response
 
-!SLIDE
+!SLIDE center
+
+![It's going to be legendary](waitforit.jpg)
+
+# Wait for it... #
+
+!SLIDEl
 
 ## ZOMG, SO MUCH WAITING!!! ##
 
