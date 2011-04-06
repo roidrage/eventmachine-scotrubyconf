@@ -1,6 +1,5 @@
 !SLIDE 
 # Introduction to EventMachine #
-## and Evented Programming in Ruby ##
 
 !SLIDE center
 
