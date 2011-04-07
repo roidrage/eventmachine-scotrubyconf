@@ -30,6 +30,10 @@
 
 !SLIDE center
 
+![Rails Request](rails_request.png)
+
+!SLIDE center
+
 ![It's going to be legendary](waitforit.jpg)
 
 # Wait for it... #
