@@ -1,6 +1,7 @@
 !SLIDE
  
-# Usages #
+# EventMachine #
+# Usages/Libraries #
 
 !SLIDE
 
@@ -14,8 +15,6 @@
     proxy do
       {:remote => "google.com:80"}
     end
-
-!SLIDE
 
     proxymachine -c proxy.rb
 
@@ -36,8 +35,8 @@
         data
       end
  
-      conn.on_response do |server, resp|
-        resp if server == :production
+      conn.on_response do |server, response|
+        response if server == :production
       end
     end
 

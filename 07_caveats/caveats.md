@@ -23,7 +23,7 @@
 ## Always run Rails ##
 ## inside EventMachine? ##
 
-!SLIDE bullets
+!SLIDE bullets incremental
 
 ## Yes, and no ##
 
@@ -45,6 +45,16 @@
 !SLIDE center
 
 ![Dude, where's my stack?](dude_wheres_my_car.jpg)
+
+!SLIDE bullets incremental
+
+## Harder to Handle Errors ##
+
+* Raised asynchronously
+
+!SLIDE
+
+# Also... #
 
 !SLIDE
 

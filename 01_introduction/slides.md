@@ -27,7 +27,7 @@
 
 !SLIDE center
 
-# EventMachine #
+# [EventMachine](http://rubyeventmachine.com/) #
 
 !SLIDE center
 

@@ -35,8 +35,31 @@
 
 !SLIDE
 
+## Echo Client ##
+
+!SLIDE smaller
+
+    @@@ruby
+    module EchoClient
+      def post_init
+        send_data "hello world"
+      end
+
+      def receive_data(data)
+        puts "Received #{data}"
+      end
+    end
+
+    EM.connect '127.0.0.1', 8081, EchoClient
+
+!SLIDE
+
 ## Don't forget to wrap it in 
 ## `EM.run {}` ##
+
+!SLIDE
+
+## HTTP Server ##
 
 !SLIDE even-smaller
 
@@ -60,9 +83,11 @@
       EM.start_server '127.0.0.1', 8080, HelloWorldServer
     end
 
-!SLIDE bullets incremental
+!SLIDE
 
 # Protocol Support #
+
+!SLIDE bullets incremental
 
 * HTTP
 * SMTP
