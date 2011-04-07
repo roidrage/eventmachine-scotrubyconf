@@ -9,6 +9,7 @@
 
 !SLIDE smaller
 
+    @@@ruby
     require 'socket'
     server = TCPServer.new(2202)
 
@@ -49,9 +50,20 @@
 
 ## Threads? ##
 
+!SLIDE small
+
+    @@@ ruby
+    while true
+      Thread.new(server.accept) do |client|
+        msg = client.readline
+        client.write msg
+        client.close
+      end
+    end
+
 !SLIDE
 
-## Meh. ##
+## Possible, But Meh. ##
 
 !SLIDE
 

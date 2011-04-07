@@ -81,6 +81,32 @@
 
 !SLIDE
 
+# [Tramp](https://github.com/lifo/tramp) #
+
+## Evented ORM ##
+
+!SLIDE
+
+    @@@ruby
+    class User < Tramp::Base
+      attribute :id, :type => Integer, :primary_key => true
+      attribute :name
+
+      validates_presence_of :name
+    end
+
+!SLIDE
+
+    @@@ruby
+    user = User.new
+    user.save do |status|
+      if not status.success?
+        puts "Here be errors"
+      end
+    end
+
+!SLIDE
+
 ## Rails on EventMachine ##
 
 !SLIDE small

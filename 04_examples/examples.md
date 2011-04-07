@@ -13,6 +13,10 @@
       end
     end
 
+!SLIDE
+
+## No Boilerplate Networking Code ##
+
 !SLIDE bullets incremental
 
 ## Pesky callbacks ##
