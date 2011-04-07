@@ -22,6 +22,8 @@
 
 !SLIDE
 
+## Schedule for Next Loop ##
+
 ## `EM.next_tick` ##
 
 !SLIDE
@@ -68,14 +70,33 @@
 
 !SLIDE small
 
-# Ping pong #
+# Ping Pong #
+
+    @@@ruby
+    EM.next_tick do
+    end
+
+!SLIDE small
+
+# Ping Pong #
+
+    @@@ruby
+    EM.next_tick do
+      EM.defer do
+        puts "THREAD, I AM IN U!"
+      end
+    end
+
+!SLIDE small
+
+# Ping Pong #
 
     @@@ruby
     EM.next_tick do
       EM.defer do
         puts "THREAD, I AM IN U!"
         EM.next_tick do
-          puts "REACTOR THREAD I AM IN U!"
+          puts "REACTOR THREAD, I AM IN U!"
         end
       end
     end
@@ -92,6 +113,12 @@
     end
 
     queue.push("ZOMG, MESSAGE!!")
+
+!SLIDE
+
+# Queues #
+
+## Pop just once ##
 
 !SLIDE small
 
@@ -110,14 +137,10 @@
       queue.push("ZOMG, MESSAGE!!")
     end
 
-!SLIDE bullets incremental
+!SLIDE
 
-# epoll #
+## `EM.epoll` ##
 
-* `EM.epoll`
+!SLIDE
 
-!SLIDE bullets incremental
-
-# kqueue #
-
-* `EM.kqueue`
+## `EM.kqueue` ##

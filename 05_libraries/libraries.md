@@ -85,7 +85,7 @@
 
 ## Evented ORM ##
 
-!SLIDE
+!SLIDE smaller
 
     @@@ruby
     class User < Tramp::Base
@@ -95,7 +95,7 @@
       validates_presence_of :name
     end
 
-!SLIDE
+!SLIDE small
 
     @@@ruby
     user = User.new

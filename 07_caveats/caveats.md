@@ -8,7 +8,7 @@
 
 !SLIDE bullets incremental
 
-* Callbacks run till finished
+* Callbacks run until finished
 * Make them fast
 
 !SLIDE bullets incremental
@@ -20,7 +20,8 @@
 
 !SLIDE
 
-## Can't I just run Rails inside EventMachine ##
+## Always run Rails ##
+## inside EventMachine? ##
 
 !SLIDE bullets
 
@@ -32,6 +33,10 @@
 !SLIDE
 
 ## EventMachine ≠ Scaling Silver Bullet ##
+
+!SLIDE center
+
+![OMG BACON!!!!](omgbacon.jpg)
 
 !SLIDE bullets
 

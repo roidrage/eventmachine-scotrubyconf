@@ -44,40 +44,21 @@
     require 'eventmachine'
     require 'evma_httpserver'
 
-    class FileServer < EventMachine::Connection
+    class HelloWorldServer < EventMachine::Connection
       include EventMachine::HttpServer
 
       def process_http_request
-        filename = File.basename(@http_request_uri)
         response = EventMachine::DelegatedHttpResponse.new(self)
         response.status = 200
-        response.content = File.read(filename)
+        response.content = "Hello, world!"
         response.content_type "text/plain"
         response.send_response
       end
     end
 
     EM.run do
-      EM.start_server '127.0.0.1', 8080, FileServer
+      EM.start_server '127.0.0.1', 8080, HelloWorldServer
     end
-
-!SLIDE even-smaller
-
-    @@@ ruby
-    EM.defer do
-      response = EventMachine::DelegatedHttpResponse.new(self)
-      response.status = 200
-      response.content = File.read(filename)
-      response.content_type "text/plain"
-      response.send_response
-    end
-
-!SLIDE bullets incremental
-
-## EventMachine HTTP Server ##
-
-* `gem install thin`
-* `thin start`
 
 !SLIDE bullets incremental
 
@@ -89,6 +70,7 @@
 * Redis
 * MySQL
 * PostgreSQL
+* [...]()
 
 !SLIDE bullets incremental
 
@@ -103,10 +85,9 @@
 !SLIDE smaller
 
     @@@ ruby
-    EM::HttpRequest.new('http://jsonip.com/').get do |req|
-      req.callback do
-        req.response
-      end
+    req = EM::HttpRequest.new('http://jsonip.com/').get
+    req.callback do
+      puts req.response
     end
 
 !SLIDE
@@ -116,10 +97,9 @@
 !SLIDE smaller
 
     @@@ ruby
-    EM::HttpRequest.new('http://jsonip.com/').get do |req|
-      req.callback do
-        ip = JSON.parse(req.response)["ip"]
-      end
+    req = EM::HttpRequest.new('http://jsonip.com/').get
+    req.callback do
+      ip = JSON.parse(req.response)["ip"]
     end
 
 !SLIDE
@@ -128,12 +108,12 @@
 
 !SLIDE smaller
 
+    @@@ruby
     redis = EM::Protocols::Redis.connect
-    EM::HttpRequest.new('http://jsonip.com/').get do |req|
-      req.callback do
-        ip = JSON.parse(req.response)["ip"]
-        redis.set("ip", ip) do |response|
-        end
+    req = EM::HttpRequest.new('http://jsonip.com/').get
+    req.callback do
+      ip = JSON.parse(req.response)["ip"]
+      redis.set("ip", ip) do |response|
       end
     end
 
@@ -143,19 +123,19 @@
 
 !SLIDE even-smaller
 
+    @@@ruby
     redis = EM::Protocols::Redis.connect
-    EM::HttpRequest.new('http://jsonip.com/').get do |req|
-      req.callback do
-        ip = JSON.parse(req.response)["ip"]
-        redis.set("ip", ip) do |response|
-          EM::Protocols::SmtpClient.send(
-            :from => "meyer@paperplanes.de",
-            :to => ["dhh@rails.com"],
-            :header => {"Subject" => "It's full of callbacks!"},
-            :body => "Look at this code, man!"
-          ).callback do
-            puts 'Email sent!'
-          end
+    req = EM::HttpRequest.new('http://jsonip.com/').get do |req|
+    req.callback do
+      ip = JSON.parse(req.response)["ip"]
+      redis.set("ip", ip) do |response|
+        EM::Protocols::SmtpClient.send(
+          :from => "meyer@paperplanes.de",
+          :to => ["dhh@rails.com"],
+          :header => {"Subject" => "It's full of callbacks!"},
+          :body => "Look at this code, man!"
+        ).callback do
+          puts 'Email sent!'
         end
       end
     end
@@ -168,6 +148,7 @@
 
 !SLIDE even-smaller
 
+    @@@javascript
     http.get({host: 'jsonip.com'}, function(res) {
       var data = '';
       res.on('data', function(chunk) {
@@ -196,6 +177,7 @@
 
 !SLIDE smaller
 
+    @@@ruby
     page = EM::HttpRequest.new("http://jsonip.com").get
     ip = JSON.parse(page.response)["ip"]
     redis = EM::Protocols::Redis.connect
@@ -221,12 +203,14 @@
 
 !SLIDE
 
+    @@@ruby
     require 'fiber'
 
 !SLIDE smaller
 
 ## HTTP using Fibers ##
 
+    @@@ruby
     f = Fiber.current
 
     request = EM::HttpRequest.new('http://jsonip.com').get
@@ -239,6 +223,7 @@
 
 ## Wrap in a new Fiber ##
 
+    @@@ruby
     Fiber.new do
       f = Fiber.current
       request = EM::HttpRequest.new('http://jsonip.com').get
@@ -253,9 +238,14 @@
 
 !SLIDE smaller
 
+    @@@ruby
     EM.synchrony do
       page = EM::HttpRequest.new("http://jsonip.com").get
       ip = JSON.parse(page.response)["ip"]
       redis = EventMachine::Protocols::Redis.connect
       redis.set("ip", ip)
     end
+
+!SLIDE
+
+## Fibers: Whoa! ##
