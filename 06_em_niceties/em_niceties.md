@@ -109,3 +109,15 @@
     EM.add_periodic_timer(1) do
       queue.push("ZOMG, MESSAGE!!")
     end
+
+!SLIDE bullets incremental
+
+# epoll #
+
+* `EM.epoll`
+
+!SLIDE bullets incremental
+
+# kqueue #
+
+* `EM.kqueue`

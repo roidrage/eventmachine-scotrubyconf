@@ -30,7 +30,7 @@
 
 !SLIDE center
 
-![Rails Request](rails_request.png)
+![Rails Request](rails_request.jpg)
 
 !SLIDE center
 
@@ -113,13 +113,12 @@
 
 !SLIDE bullets incremental
 
-# Why? #
-
-* Throughput more important than processing
+* Throughput > Processing
+* Push > Poll
 
 !SLIDE
 
-## Parallelism in Ruby sucks ##
+## Awful with Blocking I/O ##
 
 !SLIDE
 

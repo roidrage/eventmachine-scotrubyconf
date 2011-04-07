@@ -35,14 +35,14 @@
 
 !SLIDE
 
-# This... #
+## This... ##
 
     @@@ruby
     response = get_some_data(request)
 
 !SLIDE
 
-# Turns into this #
+## ...turns into this ##
 
     @@@ ruby
     get_some_data do |request|
