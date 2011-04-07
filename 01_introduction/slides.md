@@ -27,12 +27,6 @@
 
 !SLIDE center
 
-![Ry Github](ry_github.jpg)
-
-### Ryan Dahl did Evented Ruby Before Node.js was Cool ###
-
-!SLIDE center
-
 # EventMachine #
 
 !SLIDE center

@@ -10,19 +10,15 @@
 
 !SLIDE
 
-# [Reactor pattern](http://en.wikipedia.org/wiki/Reactor_pattern) #
-
-!SLIDE
-
 # [Event loop](http://en.wikipedia.org/wiki/Event_loop) #
 
 !SLIDE
 
-## Single-threaded ##
+# [Reactor pattern](http://en.wikipedia.org/wiki/Reactor_pattern) #
 
 !SLIDE
 
-## Reactor multiplexes I/O Ops #
+## Single-threaded ##
 
 !SLIDE bullets incremental
 
@@ -60,6 +56,7 @@
 * Sockets
 * External processes
 * Keyboard
+* File Watchers
 
 !SLIDE
 
@@ -67,7 +64,7 @@
 
 !SLIDE
 
-## One processing operation ##
+## One Processing Operation ##
 
 !SLIDE
 

@@ -71,24 +71,7 @@
 
 !SLIDE
 
-## More I/O than CPU ##
-
-!SLIDE
-
-## That's just not right ##
-
-!SLIDE
-
 ## No [C10K](http://www.kegel.com/c10k.html) for you ##
-
-!SLIDE bullets
-
-## They do it, we should too ##
-
-* nginx
-* Redis
-* Memcached
-* Thin
 
 !SLIDE center
 
@@ -100,12 +83,15 @@
 
 * little processing involved (CPU)
 
-!SLIDE bullets incremental small
+!SLIDE bullets small
 
 * Proxies
 * Transferring (not uploading) files
 * (Almost-)real time apps
 * Streaming/Firehose APIs
+
+!SLIDE bullets small
+
 * Messaging
 * Publish/Subscribe
 * Simple APIs
