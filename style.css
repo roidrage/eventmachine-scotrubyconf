@@ -91,3 +91,6 @@ div.even-smaller {
 div.even-smaller code {
   line-height: 33px;
 }
+
+pre.sh_sourceCode .sh_string {color: darkred}
+
