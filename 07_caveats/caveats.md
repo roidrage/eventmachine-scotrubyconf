@@ -30,14 +30,6 @@
 * Processing kills the event loop
 * Short and predictable requests
 
-!SLIDE
-
-## EventMachine ≠ Scaling Silver Bullet ##
-
-!SLIDE center
-
-![OMG BACON!!!!](omgbacon.jpg)
-
 !SLIDE bullets
 
 ## Harder to Debug ##
@@ -51,6 +43,14 @@
 ## Harder to Handle Errors ##
 
 * Raised asynchronously
+
+!SLIDE
+
+## EventMachine ≠ Scaling Silver Bullet ##
+
+!SLIDE center
+
+![OMG BACON!!!!](omgbacon.jpg)
 
 !SLIDE
 
