@@ -18,19 +18,6 @@
 
 !SLIDE
 
-## Single-threaded ##
-
-!SLIDE bullets incremental
-
-## Runs Callbacks on Events ##
-
-* Connection established
-* Data received
-* Connection closed
-* Timer fired
-
-!SLIDE
-
 ## This... ##
 
     @@@ruby
@@ -51,12 +38,25 @@
 
 !SLIDE bullets incremental
 
+## Runs Callbacks on Events ##
+
+* Connection established
+* Data received
+* Connection closed
+* Timer fired
+
+!SLIDE bullets incremental
+
 ## Evented I/O for ##
 
 * Sockets
 * External processes
 * Keyboard
 * File Watchers
+
+!SLIDE
+
+## Single-threaded ##
 
 !SLIDE
 

@@ -48,10 +48,6 @@
 
 !SLIDE
 
-## Nothing else can run ##
-
-!SLIDE
-
 ## Threads? ##
 
 !SLIDE small
@@ -86,8 +82,7 @@
 !SLIDE bullets small
 
 * Proxies
-* Transferring (not uploading) files
-* (Almost-)real time apps
+* Soft Realtime Rpps
 * Streaming/Firehose APIs
 
 !SLIDE bullets small
@@ -97,16 +92,15 @@
 * Simple APIs
 * Network Servers (and Clients)
 
-!SLIDE bullets incremental
+!SLIDE
 
-* Throughput > Processing
-* Push > Poll
+## Throughput > Processing ##
 
 !SLIDE
 
 ## Awful with Blocking I/O ##
 
-!SLIDE
+!SLIDE 
 
 ## What we really want ##
 
